@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, render_template, request
+from flask import Flask, request
 
 URL = 'https://api.fortnitetracker.com/v1/profile/pc/Twitch_Svennoss'
 
