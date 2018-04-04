@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Compare_Nite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <!--Empieza el banner-->
+    <section class="hero is-warning has-text-centered">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Compare_Nite
+          </h1>
+          <h2 class="subtitle">
+            Compara las estadÃ­sticas de los jugadores de Fortnite en PC
+          </h2>
+        </div>
+      </div>
+    </section>
+    <!--Acaba el banner-->
+
+    <!--Empieza el buscador-->
+    <section class="section">
+      <div class="container">
+        <form action="/" method="POST">
+          <div class="field is-grouped">
+
+            <p class="control is-expanded">
+              <input type="hidden" name="playerOneName" value="{% if player_one %} {{ player_one }} {% endif %}">
+              <input class="input" name="playerName" type="text" placeholder="Nombre del jugador">
+            </p>
+
+            <p class="control">
+              <button class="button is-info">
+                Buscar
+              </button>
+            </p>
+
+          </div>
+        </form>
+      </div>
+    </section>
+    <!--Acaba el buscador-->
+
+    <!--Empiezan los datos-->
+    <section class="section">
+      <div class="container">
+        <div class="tile is-ancestor">
+          <div class="tile is-vertical">
+            <div class="tile">
+              <!--Comienza el juagdor 1-->
+              {% if player_one %}<!--Si existe jugador 1...-->
+              <div class="tile is-parent is-vertical">
+                <article class="tile is-child notification is-info">
+                  <p class="title">{{ player_one }}</p>
+                  <br>
+                  <p class="subtitle">Partidas: {{ player_one_stats['matches'] }}</p>
+                  <p class="subtitle">Partidas ganadas: {{ player_one_stats['wins'] }}</p>
+                  <p class="subtitle">Bajas: {{ player_one_stats['kills'] }}</p>
+                </article>
+              </div>
+              {% endif %}
+              <!--Acaba el juagdor 1-->
+
+              <!--Comienza el juagdor 2-->
+              {% if player_two %}<!--Si existe jugador 2...-->
+              <div class="tile is-parent">
+                <article class="tile is-child notification is-success">
+                  <p class="title">{{ player_two }}</p>
+                  <br>
+                  <p class="subtitle">Tiempo jugado: {{ player_two_stats['time'] }}</p>
+                  <p class="subtitle">Tiempo medio por partida: {{ player_two_stats['avg'] }}</p>
+                  <p class="subtitle">Puntuacion total: {{ player_two_stats['score'] }}</p>
+                </article>
+              </div>
+              {% endif %}
+              <!--Acaba el juagdor 2-->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Acaban los datos-->
+
+    <!--Empieza el footer-->
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Compare_Nite</strong> by <a href="https://github.com/KaLi-1010">Mario SantamarÃ­a Osorio</a>.
+            <p>Copyright &copy; RGBlines.sytes.net 2018</p>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!--Acaba el footer-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114990870-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-114990870-2');
+    </script>
+
+
+
+  </body>
+</html>
