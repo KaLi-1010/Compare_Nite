@@ -87,4 +87,4 @@ def populate_player_data(api_data):
 #print (populate_player_data(result)). Esto lo usamos al principio para ver como nos da los datos la API
 
 if __name__ == '__main__':
-    app.run(debug=False, port=xxxx, host='x.x.x.x') #Añade el host donde corre la app
+    app.run(debug=False, port=xxxx, host='x.x.x.x') #Añade el host y el puerto donde corre la app
